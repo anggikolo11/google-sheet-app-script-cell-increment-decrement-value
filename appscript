@@ -1,0 +1,27 @@
+function onOpen() {
+  var ui = SpreadsheetApp.getUi();
+  ui.createMenu('Custom Menu')
+      .addItem('Increment A1', 'incrementA1')
+      .addItem('Decrement A1', 'decrementA1')
+      .addToUi();
+}
+
+function incrementA1() {
+  let sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  let cell = sheet.getRange('A1');
+  let value = cell.getValue();
+  if (isNaN(value)) {
+    value = 0;
+  }
+  cell.setValue(value + 1);
+}
+
+function decrementA1() {
+  let sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  let cell = sheet.getRange('A1');
+  let value = cell.getValue();
+  if (isNaN(value)) {
+    value = 0;
+  }
+  cell.setValue(value - 1);
+}
